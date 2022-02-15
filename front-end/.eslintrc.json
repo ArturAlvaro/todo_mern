@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "parser": "@babel/eslint-parser",
+    "extends": "trybe-frontend",
+    "parserOptions": {
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+        },
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "requireConfigFile": false,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "root": true,
+    "rules": {
+    }
+}
