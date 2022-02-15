@@ -1,0 +1,14 @@
+{
+    "env": {
+      "node": true,
+      "es2021": true
+    },
+    "extends": "trybe-backend",
+    "globals": {
+      "db": "writable"
+    },
+    "rules": {
+      "sonarjs/no-duplicate-string": ["error", 5]
+    }
+  }
+  
