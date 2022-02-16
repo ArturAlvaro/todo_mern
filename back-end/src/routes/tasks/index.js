@@ -1,9 +1,12 @@
 const express = require('express');
 const rescue = require('express-rescue');
-const taskController = require('../../controllers/tasks/readTasks');
+const { createTasks, readTasks, updateTasks, deleteTasks } = require('../../controllers');
 
 const taskRouter = express.Router();
 
-taskRouter.get('/', rescue(taskController));
+taskRouter.put('/:id', rescue(updateTasks));
+taskRouter.delete('/:id', rescue(deleteTasks));
+taskRouter.post('/', rescue(createTasks));
+taskRouter.get('/', rescue(readTasks));
 
 module.exports = taskRouter;
