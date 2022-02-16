@@ -11,7 +11,7 @@ module.exports = async (id, task, date) => {
   );
 
   return {
-    _id: id,
+    id,
     task,
     date,
   };

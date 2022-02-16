@@ -6,7 +6,7 @@ module.exports = async (id, task) => {
   const findTask = await readTaskById(id);
   if (!findTask) return notFound('task not found');
 
-  const actualDate = getDate(new Date());
+  const actualDate = getDate();
   const result = await updateTasks(id, task, actualDate);
 
   return result;

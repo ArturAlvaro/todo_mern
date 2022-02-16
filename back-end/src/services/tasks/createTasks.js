@@ -7,7 +7,7 @@ module.exports = async (body) => {
   const error = validate(body);
   if (error) return badRequest(error);
 
-  const actualDate = getDate(new Date());
+  const actualDate = getDate();
 
   const { task } = body;
 

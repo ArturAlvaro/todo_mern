@@ -1,9 +1,8 @@
-module.exports = (date) => {
-  const mo = new Intl.DateTimeFormat('pt-br', { 
-    dateStyle: 'short', 
-    hour12: 'true', 
-    timeStyle: 'medium',
-  }).format(date);
-  const correctDate = mo.split('/').join('-');
-  return correctDate;
+module.exports = () => {
+  const date = new Date();
+  const day = date.getDay();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
 };
