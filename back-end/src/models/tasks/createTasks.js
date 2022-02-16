@@ -6,5 +6,5 @@ module.exports = async (task, date) => {
     .collection('tasks')
     .insertOne({ task, date });
 
-  return { _id: result.insertedId, task, date };
+  return { id: result.insertedId, task, date };
 };

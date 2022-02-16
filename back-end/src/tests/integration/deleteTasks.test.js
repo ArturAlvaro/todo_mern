@@ -18,7 +18,7 @@ describe('Testa delete de tarefas', function () {
         response = await chai.request(app).post('/tasks')
           .send({ task: 'tarefa a ser excluída' });
 
-        const { body: { _id: id } } = response;
+        const { body: { id } } = response;
 
         newResponse = await chai.request(app).delete(`/tasks/${id}`);
         missingTask = await chai.request(app).delete('/tasks/algo');

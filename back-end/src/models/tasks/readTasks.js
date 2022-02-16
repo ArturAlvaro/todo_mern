@@ -5,6 +5,6 @@ module.exports = async () => {
   const result = await db
     .collection('tasks')
     .find().toArray();
-
+  
   return result;
 };

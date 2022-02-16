@@ -18,7 +18,7 @@ describe('Testa updateTasks', function () {
         task: 'minha primeira tarefa',
       });
 
-      const { body: { _id: id } } = response;
+      const { body: { id } } = response;
 
       newResponse = await chai.request(app).put(`/tasks/${id}`).send(
         { task: 'testando update na nova tarefa' },
@@ -30,6 +30,6 @@ describe('Testa updateTasks', function () {
 
   it('Atualiza usuário no banco', function () {
     expect(newResponse).to.have.status(200);
-    expect(newResponse.body).to.have.all.keys('_id', 'task', 'date');
+    expect(newResponse.body).to.have.all.keys('id', 'task', 'date');
   });
 });
