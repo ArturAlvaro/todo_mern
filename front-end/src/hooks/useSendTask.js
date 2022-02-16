@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import getTask from '../services/getTask';
 import postTask from '../services/postTask';
+import removeTask from '../services/removeTask';
 
 const useSendTask = () => {
   const [task, setTask] = useState('');
@@ -18,7 +19,15 @@ const useSendTask = () => {
     localStorage.setItem('tasks', JSON.stringify(result));
     setTask('');
   };
-  return { handleChange, task, sendTask, allTasks };
+
+  const deleteTask = async (idTask) => {
+    const result = allTasks.filter(({ _id: id }) => id !== idTask);
+    await removeTask(idTask);
+
+    return setAllTasks(result);
+  };
+
+  return { handleChange, task, sendTask, allTasks, deleteTask };
 };
 
 export default useSendTask;

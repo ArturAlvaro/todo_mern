@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// import { MdOutlineEditNote } from 'react-icons/md';
+import { MdOutlineAutoDelete } from 'react-icons/md';
 import { Ul, Li, Div } from './style';
 
-// MdOutlineAutoDelete
+// MdOutlineEditNote
 
-const TodoList = ({ tasks }) => (
+const TodoList = ({ tasks, deleteTask }) => (
   <Ul>
     { tasks
       && tasks.map(({ _id: id, task, date }) => (
@@ -13,7 +13,7 @@ const TodoList = ({ tasks }) => (
           <p>{ task }</p>
           <p>{ date }</p>
           <Div>
-            {/* <MdOutlineEditNote /> */}
+            <MdOutlineAutoDelete onClick={ () => deleteTask(id) } />
           </Div>
         </Li>
       ))}
