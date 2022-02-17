@@ -4,7 +4,14 @@ import useSendTask from '../../hooks/useSendTask';
 import { Input, Label, Button, Section } from './style';
 
 const InputForm = () => {
-  const { handleChange, task, sendTask, allTasks, deleteTask } = useSendTask();
+  const {
+    handleChange,
+    task,
+    sendTask,
+    allTasks,
+    deleteTask,
+    changeStatus,
+  } = useSendTask();
 
   return (
     <Section>
@@ -19,7 +26,11 @@ const InputForm = () => {
       <Button type="button" onClick={ () => sendTask(task) }>
         send task
       </Button>
-      <TodoList tasks={ allTasks } deleteTask={ deleteTask } />
+      <TodoList
+        tasks={ allTasks }
+        deleteTask={ deleteTask }
+        changeStatus={ changeStatus }
+      />
     </Section>
   );
 };

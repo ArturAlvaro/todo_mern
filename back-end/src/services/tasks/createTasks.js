@@ -8,9 +8,10 @@ module.exports = async (body) => {
   if (error) return badRequest(error);
 
   const actualDate = getDate();
+  const status = 'Pendente';
 
   const { task } = body;
 
-  const result = await createTasks(task, actualDate);
+  const result = await createTasks(task, actualDate, status);
   return result;
 };

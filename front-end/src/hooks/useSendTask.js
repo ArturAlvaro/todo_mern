@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import getTask from '../services/getTask';
 import postTask from '../services/postTask';
 import removeTask from '../services/removeTask';
+import updateStatus from '../services/updateStatus';
 
 const useSendTask = () => {
   const [task, setTask] = useState('');
@@ -10,12 +11,11 @@ const useSendTask = () => {
   const getAllTasks = async () => {
     const result = await getTask();
     setAllTasks(result);
-    localStorage.setItem('tasks', JSON.stringify(result));
   };
 
   useEffect(() => {
     getAllTasks();
-  }, []);
+  }, [task]);
 
   const handleChange = (target) => {
     setTask(target.value);
@@ -26,7 +26,6 @@ const useSendTask = () => {
 
     const result = await getTask();
     setAllTasks(result);
-    localStorage.setItem('tasks', JSON.stringify(result));
     setTask('');
   };
 
@@ -34,11 +33,18 @@ const useSendTask = () => {
     const result = allTasks.filter(({ _id: id }) => id !== idTask);
     await removeTask(idTask);
 
-    localStorage.setItem('tasks', JSON.stringify(result));
     return setAllTasks(result);
   };
 
-  return { handleChange, task, sendTask, allTasks, deleteTask };
+  const changeStatus = async (taskId, taskValue, taskStatus) => {
+    await updateStatus(taskId, taskValue, taskStatus);
+
+    const result = await getTask();
+    setAllTasks([...result]);
+    setTask('');
+  };
+
+  return { handleChange, task, sendTask, allTasks, deleteTask, changeStatus };
 };
 
 export default useSendTask;

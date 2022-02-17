@@ -1,8 +1,6 @@
-module.exports = () => {
-  const date = new Date();
-  const day = date.getDay();
-  const month = date.getMonth();
-  const year = date.getFullYear();
+const { format } = require('date-fns');
 
-  return `${day}-${month}-${year}`;
+module.exports = () => {
+  const timestamp = format(new Date(), 'dd-MM-yyy HH:mm:ss');
+  return timestamp;
 };
