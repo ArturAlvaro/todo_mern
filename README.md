@@ -93,6 +93,8 @@ O back-end conta com rotas para criação, leitura, alteração e remoção (CRU
 
 Veja como fica a aplicação sendo usada pelo front-end:
 
+![todo](https://user-images.githubusercontent.com/82127102/154493698-27b9a2ed-00d7-491b-9550-b9dab602f8bd.gif)
+
 <p>&nbsp</p>
 
 # Testes
