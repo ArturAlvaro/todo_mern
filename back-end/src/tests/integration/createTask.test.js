@@ -43,7 +43,7 @@ describe('Testa criação de task', function () {
 
     it('Retorna a mensagem correta', function () {
       expect(response).to.have.status(201);
-      expect(response.body).to.have.all.keys('id', 'task', 'date');
+      expect(response.body).to.have.all.keys('id', 'task', 'date', 'status');
     });
   });
 });

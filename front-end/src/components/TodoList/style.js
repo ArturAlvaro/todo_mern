@@ -24,3 +24,8 @@ export const Div = styled.div`
   flex-flow: nowrap row;
   padding: 10px;
 `;
+
+export const Button = styled.button`
+  border: none;
+  background: none;
+`;
