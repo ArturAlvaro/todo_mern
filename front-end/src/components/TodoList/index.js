@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { MdOutlineAutoDelete } from 'react-icons/md';
-import { Ul, Li, Div, Button } from './style';
+import { Ul, Li, Div, Button, P } from './style';
 
 const TodoList = ({ tasks, deleteTask, changeStatus }) => (
   <Ul>
     { tasks
       && tasks.map(({ _id: id, task, date, status }) => (
         <Li key={ id }>
-          <p>{ task }</p>
-          <p>{ date }</p>
+          <P>{ task }</P>
+          <P>{ date }</P>
           <Div>
             <Button
               disabled={ status === 'Pendente' }
